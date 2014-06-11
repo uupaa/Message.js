@@ -1,0 +1,4 @@
+Message.js
+==========
+
+MessagePassing implementation
