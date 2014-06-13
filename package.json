@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.message.js",
-  "version":        "0.0.1",
+  "version":        "0.0.2",
   "description":    "MessagePassing implementation.",
   "url":            "https://github.com/uupaa/Message.js",
   "keywords":       ["MessagePassing", "uupaa", "WebModule", "Unstable"],

@@ -20,29 +20,24 @@ MessagePassing implementation.
 <script>
 
     function Foo() {
-        this.inbox = function(data, task, id) {
-            task.set(id, data.msg + "Foo").pass();
+        this.inbox = function(task, name, data) {
+            task.set(name, data.msg + "Foo").pass();
         };
     }
     function Bar() {
-        this.inbox = function(data, task, id) {
-            task.set(id, data.msg + "Bar").pass();
+        this.inbox = function(task, name, data) {
+            task.set(name, data.msg + "Bar").pass();
         };
     }
 
     var foo1 = new Foo();
     var foo2 = new Foo();
     var bar = new Bar();
-    var msg = new Message();
+    var msg = new Message({ a: foo1, b: foo2, c: bar });
 
-    msg.bind(foo1).bind(foo2).bind(bar);
-
-    msg.post(null, { msg: "Hello" }, function(err, buffer) {
+    msg.post({ msg: "Hello" }, function(err, buffer) {
         console.log(JSON.stringify(Task.objectize(buffer), null, 2));
     });
-
-
-    test.done(pass());
 
 </script>
 ```
