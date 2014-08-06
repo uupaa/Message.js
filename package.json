@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.message.js",
-  "version":        "0.0.4",
+  "version":        "0.0.5",
   "description":    "MessagePassing implementation.",
   "url":            "https://github.com/uupaa/Message.js",
   "keywords":       ["MessagePassing", "uupaa", "WebModule", "Unstable"],
@@ -13,7 +13,7 @@
     "build":        "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty",
     "build-simple": "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty --nowrap --simple",
     "build-release":"node node_modules/uupaa.minify.js --verbose --strict --module",
-    "test":         "npm run test-node; npm run test-browser; npm run test-sim",
+    "test":         "npm run test-node; npm run test-browser",
     "test-page":    "node node_modules/uupaa.test.js/bin/TestPage.js --verbose",
     "test-debug":   "NODE_ENV=production NODE_PATH=lib node --debug-brk --harmony test/index.node.js",
     "test-node":    "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js",
@@ -22,6 +22,7 @@
     "server":       "http-server -c-1 -p 8585 &",
     "server-stop":  "",
     "server-kill":  "killall -- node /usr/local/bin/http-server -p 8585 ; exit 0",
+    "hint":         "jshint lib/*.js",
     "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
@@ -35,6 +36,7 @@
     }
   },
   "dependencies": {
+    "uupaa.task.js":    ""
   },
   "devDependencies": {
     "uupaa.nodemodule.js": "",
@@ -43,7 +45,6 @@
     "uupaa.console.js": "",
     "uupaa.valid.js":   "",
     "uupaa.help.js":    "",
-    "uupaa.task.js":    "",
     "uupaa.test.js":    "",
     "uupaa.watch.js":   "",
     "uupaa.plato.js":   "",

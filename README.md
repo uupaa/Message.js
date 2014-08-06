@@ -16,6 +16,7 @@ MessagePassing implementation.
 ### Browser
 
 ```js
+<script src="lib/Task.js">
 <script src="lib/Message.js">
 <script>
 
@@ -36,7 +37,7 @@ MessagePassing implementation.
     var msg = new Message({ a: foo1, b: foo2, c: bar });
 
     msg.post({ msg: "Hello" }, function(err, buffer) {
-        console.log(JSON.stringify(Task.objectize(buffer), null, 2));
+        console.log( JSON.stringify( Task.objectize(buffer) ) ); // {"a":"HelloFoo","b":"HelloFoo","c":"HelloBar"}
     });
 
 </script>
@@ -45,14 +46,18 @@ MessagePassing implementation.
 ### WebWorkers
 
 ```js
+importScripts("lib/Task.js");
 importScripts("lib/Message.js");
 
+...
 ```
 
 ### Node.js
 
 ```js
+var Task = require("lib/Task.js");
 var Message = require("lib/Message.js");
 
+...
 ```
 
