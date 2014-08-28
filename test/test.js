@@ -18,13 +18,13 @@ return new Test("Message", {
 function testMessage(test, pass, miss) {
 
     function Foo() {
-        this.inbox = function(task, name, data) {
-            task.set(name, data.msg + "Foo").pass();
+        this.inbox = function(task, body, id) {
+            task.set(id, body + "Foo").pass();
         };
     }
     function Bar() {
-        this.inbox = function(task, name, data) {
-            task.set(name, data.msg + "Bar").pass();
+        this.inbox = function(task, body, id) {
+            task.set(id, body + "Bar").pass();
         };
     }
 
@@ -33,7 +33,7 @@ function testMessage(test, pass, miss) {
     var bar = new Bar();
     var msg = new Message({ a: foo1, b: foo2, c: bar });
 
-    msg.post({ msg: "Hello" }, function(err, buffer) {
+    msg.post("Hello", function(err, buffer) {
         console.log(JSON.stringify(Task.objectize(buffer), null, 2));
 
         if (buffer["a"] === "HelloFoo" &&
